@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="./index/weui.min.css">
+    <link rel="stylesheet" href="./index/jquery-weui.min.css">
+    <style>
+        .page {
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 50px;
+        }
+        
+        .weui-cell__hd {
+            position: relative;
+        }
+        
+        .weui-cell__hd img {
+            width: 48px;
+            height: 48px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .cell-colmn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 48px;
+        }
+        
+        .cell-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hideword {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1
+        }
+        
+        .f14 {
+            font-size: 14px;
+            color: #999
+        }
+        
+        .weui-search-bar__box {
+            background-color: #f3f3f3;
+        }
+        
+        .weui-search-bar__label {
+            background-color: #f3f3f3;
+        }
+        
+        .weui-search-bar {
+            background-color: #fff;
+            padding: 0.8rem 0.625rem;
+        }
+        
+        .weui-swiped-btn {
+            display: flex;
+            align-items: center;
+        }
+        
+        .bottombar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%
+        }
+        
+        .weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
+            color: #015FB6
+        }
+        
+        .weui-tabbar__label {
+            font-size: 13px;
+        }
+        
+        .username {
+            font-size: 16px;
+            width: 10rem;
+        }
+    </style>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="weui-search-bar" id="searchBar">
+            <form class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label class="weui-search-bar__label" id="searchText">
+                            <i class="weui-icon-search"></i>
+                            <span>搜索</span>
+                          </label>
+            </form>
+            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+
+        <div class="weui-cells" style="margin-top:0">
+            <!-- <div class="f14" style="text-align:center;padding: 10px;">
+                暂无沟通信息
+            </div> -->
+            <div class="weui-cell weui-cell_swiped">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <span class="weui-badge" style="position: absolute;top: -.4em;right: 5px;">8</span>
+                            <img src="./index/img.jpg" alt="">
+                        </div>
+                        <div class="weui-cell__bd cell-colmn">
+                            <div class="cell-row">
+                                <span class="hideword username">用户名称用户名称用户名称用户名称用户名称用户名称用户名称</span>
+                                <span class="f14">2019.1.31</span>
+                            </div>
+                            <div class="f14 hideword " style="max-width:15rem;">
+                                信息信息信息信息信息信息信息信息信息信息信息信息信息信息信息信息
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft">
+                    <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+                </div>
+            </div>
+
+            <div class="weui-cell weui-cell_swiped">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <span class="weui-badge" style="position: absolute;top: -.4em;right: 5px;">8</span>
+                            <img src="./index/img.jpg" alt="">
+                        </div>
+                        <div class="weui-cell__bd cell-colmn">
+                            <div class="cell-row">
+                                <span class="hideword username">用户名称用户名称用户名称用户名称用户名称用户名称用户名称</span>
+                                <span class="f14">2019.1.31</span>
+                            </div>
+                            <div class="f14 hideword " style="max-width:15rem;">
+                                信息信息信息信息信息信息信息信息信息信息信息信息信息信息信息信息
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft">
+                    <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="weui-tabbar bottombar">
+        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+            <div class="weui-tabbar__icon">
+                <img src="./index/img.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">抢好礼</p>
+        </a>
+        <a href="#tab1" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="./index/img.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">附近商家</p>
+        </a>
+        <a href="#tab1" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="./index/img.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">我是商家</p>
+        </a>
+    </div>
+
+
+
+
+
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<!-- <script src="./index/jquery-2.1.4.js"></script> -->
+<script src="./index/jquery-weui.min.js"></script>
+<script>
+    // $('.delete-swipeout').click(function() {
+    //     $(this).parents('.weui-cell').remove()
+    // })
+
+    // var a = [1, 2, 3];
+    // const b = 1;
+    // const c = a + b;
+    // console.log(a);
+    // console.log(c);
+    const a = new Number('123sd');
+    console.log(a);
+    console.log(a.toString());
+
+    const b = "123";
+    console.log(b);
+
+    const c = [123, 123, 564]
+    console.log(c);
+    const d = 123;
+    console.log(d)
+
+    var e = new Date();
+    console.log(e.toNumber());
+</script>
+
+</html>

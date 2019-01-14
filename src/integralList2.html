@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>积分列表</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="/index/weui.min.css">
+    <link rel="stylesheet" href="/index/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index/showseller.scss">
+    <style>
+        .weui-cells {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 50px;
+            margin-top: 0
+        }
+        
+        .weui-cell__hd img {
+            width: 75px;
+            height: 75px;
+            margin-right: 10px;
+        }
+        
+        .weui-cell__bd {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .weui-cell__ft {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .weui-cell:before {
+            left: 0;
+        }
+        
+        .page {
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        /* 页面scope */
+    </style>
+</head>
+
+<body>
+    <div class="wallet" style="height:90px;">
+        <div class="balance" style="top:15px">
+            <div class="balance_key">当前总积分（个）</div>
+            <div class="balance_val">1637</div>
+        </div>
+        <span class="balance_des">
+            <img src="./index/question.png" alt="">
+            积分规则
+        </span>
+    </div>
+
+    <div class="weui-cells" style="margin-top:0">
+        <!-- 列表修改了结构 -->
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-1">
+                    <span class="integral">3</span> 积分
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-1">
+                    <span class="integral">20</span> 积分
+                </div>
+            </div>
+        </div>
+
+
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-1">
+                    <span class="integral">0</span> 积分
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

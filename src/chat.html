@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对话框</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1006566_i75fuxm40o.css">
+    <link rel="stylesheet" href="./index/showseller.scss">
+    <style type="text/css">
+        /*body{background:url(./new_chat/images/yuyin_bg.png) no-repeat;background-size:100%;}*/
+        
+        body {
+            background-color: #eee;
+            background-size: 100%;
+        }
+        
+        @media all and (min-width: 640px) {
+            body,
+            html,
+            .wenwen-footer,
+            .speak_window {
+                width: 640px!important;
+                margin: 0 auto;
+            }
+            .speak_window,
+            .wenwen-footer {
+                left: 50%!important;
+                margin-left: -320px
+            }
+        }
+        
+        input,
+        button {
+            outline: none;
+        }
+        
+        .wenwen-footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            padding: 7px 15px;
+            background: #fff;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            box-shadow: 0 -2px 9px 0 rgba(75, 74, 102, 0.05);
+        }
+        
+        .wenwen_btn,
+        .wenwen_help {
+            width: 18%;
+            text-align: center;
+        }
+        
+        .wenwen_btn img {}
+        
+        .wenwen_text {
+            border-radius: 17.5px;
+            width: 232px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .circle-button {
+            padding: 0 5px;
+        }
+        
+        .wenwen_text .circle-button {
+            font-size: 14px;
+            color: #666;
+            line-height: 38px;
+        }
+        
+        .write_box {
+            height: 35px;
+            background: #fff;
+            width: 100%;
+            /* display: none; */
+        }
+        
+        .write_box input {
+            background-color: #f3f3f3;
+            height: 35px;
+            padding: 0 5px;
+            line-height: 40px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 17.5px;
+            font-size: 14px;
+            line-height: 14px;
+            appearance: none;
+            outline: none;
+            border: none;
+        }
+        
+        .wenwen_help button {
+            width: 100%;
+            background: #42929d;
+            color: #fff;
+            border-radius: 5px;
+            border: 0;
+            height: 35px;
+        }
+        
+        #wenwen {
+            height: 100%;
+        }
+        
+        .speak_window {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        
+        .speak_box {
+            margin-bottom: 70px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .answer {
+            margin: 10px 0;
+        }
+        
+        .question {
+            /* display: flex;
+            align-items: center;
+            justify-content: flex-end; */
+            text-align: right;
+            margin: 5px 0;
+        }
+        /* .question>div {
+            display: inline-block;
+        } */
+        
+        .left {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+            font-size: 15px;
+            position: relative;
+            top: 5px;
+        }
+        
+        .clear {
+            clear: both;
+        }
+        
+        .heard_img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #ddd;
+        }
+        
+        .heard_img img {
+            width: 100%;
+            height: 100%
+        }
+        
+        .question_text,
+        .answer_text {
+            box-sizing: border-box;
+            position: relative;
+            display: table-cell;
+            min-height: 50px;
+        }
+        
+        .question_text {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        .question_text {
+            padding-right: 20px;
+        }
+        
+        .answer_text {
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question_text p,
+        .answer_text p {
+            border-radius: 5px;
+            padding: 3px 13px;
+            margin: 0;
+            font-size: 14px;
+            line-height: 28px;
+            box-sizing: border-box;
+            vertical-align: middle;
+            display: table-cell;
+            word-wrap: break-word;
+            max-width: 13rem;
+        }
+        
+        .answer_text p {
+            background: #fff;
+        }
+        
+        .question_text p {
+            background: #D24646;
+            color: #fff;
+            text-align: left;
+        }
+        
+        .question_text i,
+        .answer_text i {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            position: absolute;
+            top: 20px;
+        }
+        
+        .answer_text i {
+            border-right: 10px solid #fff;
+            left: 10px;
+        }
+        
+        .question_text i {
+            border-left: 10px solid #D24646;
+            right: 10px;
+        }
+        
+        .answer_text p a {
+            color: #D24646;
+            display: inline-block;
+        }
+        
+        audio {
+            display: none;
+        }
+        
+        .saying {
+            position: fixed;
+            bottom: 30%;
+            left: 50%;
+            width: 120px;
+            margin-left: -60px;
+            display: none;
+        }
+        
+        .saying img {
+            width: 100%;
+        }
+        
+        .write_list {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: solid 1px #ddd;
+            padding: 5px;
+            line-height: 30px;
+        }
+        
+        .time {
+            font-size: 12px;
+            color: #B3B3B3;
+            text-align: center;
+        }
+        
+        .iconfont {
+            font-size: 26px;
+            color: #B3B3B3;
+        }
+        
+        .send {
+            width: 100%;
+            background: #D24646;
+            color: #fff;
+            border-radius: 5px;
+            border: 0;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-left: 15px;
+            font-size: 12px;
+        }
+        
+        .bottom_tools {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 208px;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tools_container .tools_item .tools_item_key {
+            color: #B3B3B3;
+            font-size: 12px;
+            transform: scale(0.91)
+        }
+        
+        .tools_container {
+            height: 13rem;
+            border-top: 1px solid #f3f3f3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="wrapper" style="height:100%"> -->
+    <div class="speak_window">
+        <div class="speak_box">
+            <div class="time">6月7日 上午11:55</div>
+            <div class="answer">
+                <div class="heard_img left"><img src="./index/koiLogo.png"></div>
+                <div class="answer_text">
+                    <p>你好我是客服a</p>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <div class="saying">
+            <img src="./new_chat/images/saying.gif" />
+        </div> -->
+
+
+    <div class="wenwen-footer">
+        <div class="iconfont icon-wode" style="margin-right:15px;" onclick="showWord()"></div>
+        <form action="javascript:return true">
+            <div class="wenwen_text left">
+                <div class="write_box">
+                    <input type="text" class="left" onKeyUp="keyup()" onclick="to_write()" />
+                </div>
+            </div>
+        </form>
+        <div class="send" onclick="up_say()">发送</div>
+    </div>
+
+    <div id="bottom-tools" style="display:none">
+        <div class="tools_container bottom_tools">
+            <div class="tools_item">
+                <img class="tools_icon" src="./index/t-action.png" alt="">
+                <div class="tools_item_key">相册</div>
+            </div>
+            <div class="tools_item">
+                <img class="tools_icon" src="./index/t-card.png" alt="">
+                <div class="tools_item_key">拍照</div>
+            </div>
+            <div class="tools_item">
+                <img class="tools_icon" src="./index/t-gift.png" alt="">
+                <div class="tools_item_key">位置</div>
+            </div>
+            <div class="tools_item">
+                <img class="tools_icon" src="./index/t-coupon.png" alt="">
+                <div class="tools_item_key">常用语</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="useword" style="display:none">
+        <ul class="item_wrap bottom_tools">
+            <li class="item">
+                <div class="item_bd text-2">你好啊，有没有打折啊</div>
+            </li>
+            <li class="item">
+                <div class="item_bd text-2">你好啊，有没有打折啊</div>
+            </li>
+            <li class="item">
+                <div class="item_bd text-2">你好啊，有没有打折啊</div>
+            </li>
+            <li class="item">
+                <div class="item_bd text-2">你好啊，有没有打折啊</div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    $('form').submit(function() {
+        up_say()
+    });
+    $(".speak_window").click(function() {
+        $("#useword").hide();
+        $(".wenwen-footer").css('bottom', '0px');
+        i = 0;
+    })
+
+
+    var i = 0;
+
+    function showWord() {
+        if (i == 0) {
+            $("#useword").show();
+            $(".wenwen-footer").css('bottom', '208px');
+            $('.write_box input').val(''),
+                i++;
+        } else {
+            $("#useword").hide();
+            $(".wenwen-footer").css('bottom', '0px');
+            i = 0;
+        }
+    }
+
+    $(".item").click(function() {
+        var word = $(this).text().trim();
+        $('.write_box input').val(word);
+    })
+
+    $('.write_box input').focus(function() {
+        $("#useword").hide();
+        $(".wenwen-footer").css('bottom', '0px');
+        i = 0;
+    });
+
+    function to_write() {
+        $('.wenwen_btn img').attr('src', './new_chat/images/yy_btn.png');
+        $('.wenwen_btn').attr('onclick', 'to_say()');
+        $('.write_box,.wenwen_help button').show();
+        $('.circle-button,.wenwen_help a').hide();
+        $('.write_box input').focus();
+        for_bottom();
+    }
+
+    function to_say() {
+        $('.wenwen_btn img').attr('src', './new_chat/images/jp_btn.png');
+        $('.wenwen_btn').attr('onclick', 'to_write()');
+        $('.write_box,.wenwen_help button').hide();
+        $('.circle-button,.wenwen_help a').show();
+    }
+
+    function up_say() {
+        var text = $('.write_box input').val(),
+            str = '<div class="question">';
+        str += '<div class="heard_img fr"><img src="/avatar.ee1390fe.png"/></div>';
+        str += '<div class="question_text clear"><p>' + text + '</p><i></i>';
+        str += '</div></div>';
+
+        if (text == '') {
+            alert('请输入提问！');
+            $('.write_box input').focus();
+        } else {
+            $('.speak_box').append(str);
+            $('.write_box input').val('');
+            // $('.write_box input').focus();
+            autoWidth();
+            for_bottom();
+            setTimeout(function() {
+                var ans = '<div class="answer"><div class="heard_img left"><img src="/koiLogo.0ca4bccb.png"/></div>';
+                ans += '<div class="answer_text"><p>您发送的文字是：' + text + '</p><i></i>';
+                ans += '</div></div>';
+                $('.speak_box').append(ans);
+                for_bottom();
+            }, 1000);
+        }
+    }
+
+
+    $("input").focus(function() {
+        var interval = setInterval(function() {
+            document.body.scrollTop = document.body.scrollHeight
+        }, 100)
+    });
+
+
+
+
+    //结束输入才触发的函数
+    function keyup() {
+        // console.log($("body").innerHeight());
+        // var footer_height = $('.wenwen-footer').outerHeight(),
+        // text = $('.write_box input').val();
+        // if (text == '' || text == undefined) {
+        // } else {
+        //     $('.wenwen-footer').append(str);
+        // }
+        // $(".wenwen-footer").scrollIntoView();
+
+        // $("input").focus(function() {
+        // });
+        // $("body").eq(0).css('height', oldHeight + 'px');
+    }
+
+    var wen = document.getElementById('wenwen');
+
+    // function _touch_start(event) {
+    //     event.preventDefault();
+    //     $('.wenwen_text').css('background', '#c1c1c1');
+    //     $('.wenwen_text span').css('color', '#fff');
+    //     $('.saying').show();
+    // }
+
+    // function _touch_end(event) {
+    //     event.preventDefault();
+    //     $('.wenwen_text').css('background', '#fff');
+    //     $('.wenwen_text .circle-button').css('color', '#666');
+    //     $('.saying').hide();
+    //     var str = '<div class="question">';
+    //     str += '<div class="heard_img fr"><img src="./index/koiLogo.png"/></div>';
+    //     str += '<div class="question_text clear"><p>不好意思，我听不清！</p><i></i>';
+    //     str += '</div></div>';
+    //     $('.speak_box').append(str);
+    //     for_bottom();
+    //     setTimeout(function() {
+    //         var ans = '<div class="answer"><div class="heard_img left"><img src="./index/koiLogo.png"/></div>';
+    //         ans += '<div class="answer_text"><p>我不知道你在说什么?</p><i></i>';
+    //         ans += '</div></div>';
+    //         $('.speak_box').append(ans);
+    //         for_bottom();
+    //     }, 1000);
+    // }
+
+    // wen.addEventListener("touchstart", _touch_start, false);
+    // wen.addEventListener("touchend", _touch_end, false);
+
+    //对话框上移动
+    function for_bottom() {
+        var speak_height = $('.speak_box').height();
+        $('.speak_box,.speak_window').animate({
+            scrollTop: speak_height
+        }, 500);
+    }
+
+    function autoWidth() {
+        $('.question_text').css('max-width', $('.question').width() - 60);
+    }
+    autoWidth();
+</script>
+
+</html>

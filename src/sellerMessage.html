@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家信息</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="/index/weui.min.css">
+    <link rel="stylesheet" href="/index/jquery-weui.min.css">
+    <link rel="stylesheet" href="/index/showseller.scss">
+    <style>
+        /* 页面scope */
+        
+        .weui-cells {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 50px;
+            margin-top: 0
+        }
+        
+        .weui-cell__hd img {
+            width: 75px;
+            height: 75px;
+            margin-right: 10px;
+        }
+        
+        .weui-cell__bd {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .weui-cell__ft {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .weui-cell:before {
+            left: 0;
+        }
+        
+        .page {
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        /* 页面scope */
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <img src="/index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                    <div class="colmn">
+                        <span class="button-a">活动公告</span>
+                        <!-- 最多21个字-->
+                        <span class="text-2 hideword" style="width:16rem"> 活动公告具体内容活动公告具体内容告具体内容</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-item" style="background-color: #D24646">
+                    <div class="card__hd">
+                        ￥50
+                    </div>
+                    <div class="card__bd">
+                        <div class="text-3">消费满200元可用</div>
+                        <div class="text-4">2019.01.01-2019.06.01</div>
+                    </div>
+                    <div class="card__ft">
+                        <div class="button-2">领取</div>
+                    </div>
+                </div>
+
+
+                <div class="card-item" style="background-color: #F5A623">
+                    <div class="card__hd">
+                        ￥20
+                    </div>
+                    <div class="card__bd">
+                        <div class="text-3">消费满200元可用</div>
+                        <div class="text-4">2019.01.01-2019.06.01</div>
+                    </div>
+                    <div class="card__ft">
+                        <div class="button-2">领取</div>
+                    </div>
+                </div>
+
+
+                <div class="card-item" style="background-color: #78D2D2;">
+                    <div class="card__hd">
+                        ￥10
+                    </div>
+                    <div class="card__bd">
+                        <div class="text-3">消费满200元可用</div>
+                        <div class="text-4">2019.01.01-2019.06.01</div>
+                    </div>
+                    <div class="card__ft">
+                        <div class="button-2">领取</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="recommend">
+                <div class="text-1">特色菜品</div>
+                <div class="recommend-content">
+                    <div class="recommend-item">
+                        <img src="./index/koiLogo.png" alt="">
+                        <span class="text-2 hideword " style="width:8rem; ">金桔柠檬金桔柠檬金桔柠檬金桔柠檬</span>
+                    </div>
+
+                    <div class="recommend-item ">
+                        <img src="/index/未打卡 copy@3x.png">
+                        <span class="text-2 hideword" style="width:8rem;">港式冻丝袜奶茶</span>
+                    </div>
+                    <div class="recommend-item">
+                        <img src="/index/未打卡 copy@3x.png">
+                        <span class="text-2 hideword " style="width:8rem; ">焦糖红茶玛奇朵</span>
+                    </div>
+                    <div class="recommend-item ">
+                        <img src="/index/未打卡 copy@3x.png">
+                        <span class="text-2 hideword" style="width:8rem;">珍珠绿茶</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <div class="bottom-bar-item" style="background-color:#ffff;color:#D24646">联系商家</div>
+        <div class="bottom-bar-item" style="background-color:#D24646;color:#fff">下单</div>
+    </div>
+
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/index/jquery-weui.min.js"></script>
+
+</body>
+
+</html>

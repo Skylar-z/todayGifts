@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>附近商家</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="./index/weui.min.css">
+    <link rel="stylesheet" href="./index/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index/showseller.scss">
+    <style>
+        /* 页面scope */
+        
+        .weui-cells {
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .weui-cell__hd img {
+            width: 75px;
+            height: 75px;
+            margin-right: 10px;
+        }
+        
+        .colmn {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .weui-cell__ft {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: -10px;
+        }
+        
+        .weui-cell:before {
+            left: 0;
+        }
+        /* 页面scope */
+    </style>
+</head>
+
+<body>
+
+    <div class="weui-search-bar" id="searchBar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索关键字" required="">
+                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+
+    <div class="weui-cells" style="margin-top:0">
+        <!-- 列表修改了结构 -->
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                    <span class="button-a">活动公告</span>
+                    <span class="text-2"> 新店开业消费满100减50 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-5">已打卡2天</div>
+                <div class="button-sign">打卡</div>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                    <span class="button-b">新店开业</span>
+                    <span class="text-2"> 新店开业消费满100减50 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-5">已打卡2天</div>
+                <div class="button-unsign">未打卡</div>
+            </div>
+        </div>
+
+
+        <div class="weui-cell">
+            <div class="weui-cell" style="flex:1;padding:0">
+                <div class="weui-cell__hd">
+                    <img src="./index/koiLogo.png" alt="">
+                </div>
+                <div class="weui-cell__bd colmn">
+                    <span class="text-1"> 大丰收鱼庄 </span>
+                    <span class="button-c">充值返现</span>
+                    <span class="text-2"> 新店开业消费满100减50 </span>
+                </div>
+            </div>
+            <div class="weui-cell__ft">
+                <div class="text-5">已打卡2天</div>
+                <div class="button-unsign">未打卡</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+    <script src="./index/jquery-weui.min.js"></script>
+
+</body>
+
+</html>

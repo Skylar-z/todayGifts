@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加特色菜品</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="./index/weui.min.css">
+    <link rel="stylesheet" href="./index/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index/sellerSetting.scss">
+    <style>
+        .return {
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            z-index: 900;
+        }
+        
+        .weui-swiped-btn {
+            display: flex;
+            align-items: center;
+        }
+        
+        .dishes_img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .weui-cell__bd {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="return">返回</div>
+    <!-- 设置弹窗 -->
+    <div class="BG" style="display:none">
+        <div class="setting_wrapper">
+            <div class="setting_wrapper-header">
+                <span>上传特色菜品</span>
+            </div>
+            <div class="setting_wrapper-body">
+                <div class="setting_wrapper-cell dishes_wrap">
+                    <div class="weui-uploader__input-box">
+                        <img src="./index/avatar.png" alt="">
+                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                    <span>图片尺寸建议300*300</span>
+                </div>
+
+                <div class="setting_wrapper-cell">
+                    <span style="font-size:14px">菜品名称</span>
+                    <input class="rInput" maxlength="15" type="text" placeholder="这里是菜品名称">
+                </div>
+            </div>
+            <div class="setting_wrapper-footer">
+                <div>取消</div>
+                <div style="color:#0F3C99">保存</div>
+            </div>
+        </div>
+    </div>
+    <!-- 设置弹窗  结束 -->
+    <div>
+        <!-- <div class="weui-cell">
+            <div class="weui-cell__bd" style="text-align:center">
+                <span class="xdy-text__e4"> 暂无特色菜品，快去添加哦</span>
+            </div>
+        </div> -->
+        <div class="weui-cell weui-cell_swiped">
+            <div class="weui-cell__bd">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img class="dishes_img" src="./index/koiLogo.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        墨香奶绿
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell__ft">
+                <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+            </div>
+        </div>
+
+
+        <div class="weui-cell weui-cell_swiped">
+            <div class="weui-cell__bd">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img class="dishes_img" src="./index/koiLogo.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        墨香奶绿
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell__ft">
+                <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+            </div>
+        </div>
+
+        <div class="weui-cell weui-cell_swiped">
+            <div class="weui-cell__bd">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img class="dishes_img" src="./index/koiLogo.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        墨香奶绿
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell__ft">
+                <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+            </div>
+        </div>
+
+
+        <div class="weui-cell weui-cell_swiped">
+            <div class="weui-cell__bd">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img class="dishes_img" src="./index/koiLogo.png" alt="">
+                    </div>
+                    <div class="weui-cell__bd">
+                        墨香奶绿
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell__ft">
+                <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="setting_add">
+        <img src="./index/setting_add.png" alt="">
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="./index/jquery-weui.min.js"></script>
+<script>
+    $('.delete-swipeout').click(function() {
+        $(this).parents('.weui-cell').remove()
+    })
+</script>
+
+</html>
