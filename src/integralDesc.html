@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>积分列表</title>
+    <script>
+        (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
+    </script>
+    <link rel="stylesheet" href="/index/weui.min.css">
+    <link rel="stylesheet" href="/index/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index/showseller.scss">
+    <style>
+        .weui-cells {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 50px;
+            margin-top: 0
+        }
+        
+        .weui-cell__hd img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .weui-cell__bd {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .weui-cell__ft {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #F5A623;
+            font-size: 13px;
+        }
+        
+        .weui-cell__ft img {
+            width: 10px;
+            height: 10px;
+            margin-left: 5px;
+        }
+        
+        .weui-cell:before {
+            left: 0;
+        }
+        
+        .page {
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        
+        .item_wrap .item:after {
+            border-bottom: none;
+        }
+        /* 页面scope */
+        
+        .wallet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wallet" style="height:180px;">
+        <div class="integral_code_wrap">
+            <img class="integral_code" src="./index/qrcode.png" alt="">
+            <span class="text-2">积分二维码</span>
+        </div>
+    </div>
+
+
+    <div class="mycell item_wrap" style="height:80px;">
+        <div class="item">
+            <div class="item_hd ">
+                <img style="width:60px;height:60px" src="./index/koiLogo.png" alt="">
+            </div>
+            <div class="item_bd text-1">
+                大丰收鱼庄
+            </div>
+            <div class="item_ft text-8">
+                123
+                <img src="./index/integral.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <ul class="item_wrap">
+        <div class="item_title">积分明细</div>
+        <li class="item">
+            <div class="item_bd text-2">
+                <span class="text-10">就餐消费</span>
+                <span class="text-9">2019-01-02 17:23:44</span>
+            </div>
+            <div class="item_ft text-8">
+                +230
+                <img src="./index/integral.png" alt="">
+            </div>
+        </li>
+        <li class="item">
+            <div class="item_bd text-2">
+                <span class="text-10">就餐消费</span>
+                <span class="text-9">2019-01-02 17:23:44</span>
+            </div>
+            <div class="item_ft text-8">
+                +15
+                <img src="./index/integral.png" alt="">
+            </div>
+        </li>
+        <li class="item">
+            <div class="item_bd text-2">
+                <span class="text-10">签到打卡</span>
+                <span class="text-9">2019-01-02 17:23:44</span>
+            </div>
+            <div class="item_ft text-8">
+                +1
+                <img src="./index/integral.png" alt="">
+            </div>
+        </li>
+        <li class="item">
+            <div class="item_bd text-2">
+                <span class="text-10">兑换商品</span>
+                <span class="text-9">2019-01-02 17:23:44</span>
+            </div>
+            <div class="item_ft text-8">
+                -30
+                <img src="./index/integral.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+
+
+</body>
+
+</html>

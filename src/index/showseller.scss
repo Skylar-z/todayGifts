@@ -85,6 +85,22 @@
                line-height: 16.5px;
            }
            
+           .text-8 {
+               font-size: 13px;
+               color: #F5A623;
+           }
+           
+           .text-9 {
+               font-size: 11px;
+               color: #727272;
+           }
+           
+           .text-10 {
+               font-size: 13px;
+               color: #000;
+               display: block;
+           }
+           
            %tip {
                font-size: 10px;
                padding: 3px 7.5px;
@@ -363,7 +379,6 @@
                    font-size: 15px;
                    font-weight: 500;
                    color: #000;
-                   line-height: 2;
                }
            }
            
@@ -482,6 +497,13 @@
                    &_ft {
                        float: right;
                        padding-right: 1rem;
+                       display: flex;
+                       align-items: center;
+                       img {
+                           width: 11px;
+                           height: 11px;
+                           margin-left: 5px;
+                       }
                    }
                    &:after {
                        content: '';
@@ -491,5 +513,21 @@
                        bottom: 0;
                        left: 15px;
                    }
+               }
+           }
+           
+           .integral_code_wrap {
+               width: 275px;
+               height: 150px;
+               border-radius: 4px;
+               background-color: #fff;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               .integral_code {
+                   width: 100px;
+                   height: 100px;
+                   margin-bottom: 5px;
                }
            }
