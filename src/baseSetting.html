@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./index/main.css">
     <link rel="stylesheet" href="./index/sellerSetting.scss">
     <style>
-        .weui-uploader__input-box {
+        .around_box {
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -34,13 +34,33 @@
             -ms-flex-direction: column;
             flex-direction: column;
         }
+        
+        .weui-uploader__file,
+        .weui-uploader__input-box {
+            width: 74px;
+            height: 74px;
+            margin-right: 9px;
+            margin-bottom: 9px;
+            position: relative;
+        }
+        
+        .weui-uploader__file::after {
+            content: '';
+            background: url(./index/delete.png);
+            background-size: 100% 100%;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
     </style>
 </head>
 
 <body>
     <div class="avatar_wrap">
         <div class="avatar_info">
-            <div class="weui-uploader__input-box">
+            <div class="weui-uploader__input-box around_box">
                 <img src="./index/koiLogo.png" alt="" class="seller_avatar">
                 <input id="uploaderInput" class="weui-uploader__input seller_avatar" type="file" accept="image/*" multiple="">
             </div>
@@ -103,16 +123,31 @@
             </textarea>
         </li>
 
+
+
         <li class="item">
             <div class="item_hd">
-                特色菜品
-                <div class="item_ft-access"></div>
+                环境介绍(轮播图)
             </div>
+            <div class="weui-uploader__bd" style="margin:10px 0;">
+                <ul class="weui-uploader__files" id="uploaderFiles">
+                    <!-- 点击整个li都可以删除该图片，删除前用$.confirm提示用户 -->
+                    <li class="weui-uploader__file" style="background-image:url(./index/koiLogo.png)"></li>
+                    <li class="weui-uploader__file" style="background-image:url(./index/koiLogo.png)">
+                    </li>
+                    <li class="weui-uploader__file" style="background-image:url(./index/koiLogo.png)">
+                    </li>
+                </ul>
+                <div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+            </div>
+
         </li>
 
         <li class="item">
             <div class="item_hd">
-                环境介绍
+                特色菜品
                 <div class="item_ft-access"></div>
             </div>
         </li>
