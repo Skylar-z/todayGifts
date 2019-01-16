@@ -289,36 +289,62 @@
     }
 }
 
+// .item_wrap {
+//     background-color: #fff;
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+//     .item {
+//         display: flex;
+//         align-items: center;
+//         width: 100%;
+//         padding: 13px 15px;
+//         box-sizing: border-box;
+//         position: relative;
+//         &_title {
+//             font-size: 14px;
+//             color: #a8a8a8;
+//             width: 100%;
+//             padding-right: 1rem;
+//             box-sizing: border-box;
+//         }
+//         &:after {
+//             content: '';
+//             border-bottom: 0.6px solid #ECECEC;
+//             width: 95%;
+//             position: absolute;
+//             bottom: 0;
+//             left: 15px;
+//         }
+//     }
+// }
 .item_wrap {
+    padding: 0 15px;
+    box-sizing: border-box;
     background-color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
     .item {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         width: 100%;
-        padding: 13px 15px;
+        padding: 10px 0;
         box-sizing: border-box;
-        position: relative;
-        &_title {
-            font-size: 14px;
-            color: #a8a8a8;
+        border-bottom: 0.6px solid #ECECEC;
+        &_hd {
             width: 100%;
-            padding-right: 1rem;
-            box-sizing: border-box;
+            font-size: 13px;
+            color: #999;
+            font-weight: 600;
+            position: relative;
+            font-size: 13px;
         }
-        &:after {
-            content: '';
-            border-bottom: 0.6px solid #ECECEC;
-            width: 95%;
-            position: absolute;
-            bottom: 0;
-            left: 15px;
+        &_bd {
+            width: 100%;
+            position: relative;
+            color: #1D1D26;
         }
     }
 }
 
 .item_ft-access {
-    position: relative;
     &::after {
         content: '';
         width: 8px;
@@ -361,6 +387,7 @@
 }
 
 .base_input {
+    width: 100%;
     appearance: none;
     border: none;
     outline: none;
@@ -369,6 +396,8 @@
     color: #1D1D26;
     text-align: left;
     margin-top: 10px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .base_textarea {

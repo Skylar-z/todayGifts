@@ -12,6 +12,11 @@
     <script>
         (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
     </script>
+    <!-- <link rel="stylesheet" href="./index/weui.min.css">
+    <link rel="stylesheet" href="./index/jquery-weui.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index/main.css">
     <link rel="stylesheet" href="./index/showseller.scss">
     <style>
         .item_wrap {
@@ -22,6 +27,8 @@
             appearance: none;
             border: none;
             outline: none;
+            width: 70%;
+            font-size: 14px;
         }
         
         .item {
@@ -29,18 +36,42 @@
             flex-direction: row;
         }
         
+        .pre_confirm {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 90%;
+            background-color: #DDDDDD;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: none;
+        }
+        
         .confirm {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translate(-50%);
-            width: 335px;
+            width: 90%;
             background-color: #D24646;
-            color: #fff;
+            color: #FFFFFF;
             text-align: center;
             padding: 10px 0;
-            font-size: 12px;
-            border-radius: 18px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        
+        .button_code {
+            padding: 5px 10px;
+            background-color: #D24646;
+            color: #fff;
+            display: inline-flex;
+            font-size: 13px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -48,34 +79,65 @@
 <body style="background-color:#fff">
     <ul class="item_wrap">
         <div class="item_title">基础信息</div>
-        <label class="item">
+        <div class="item">
             <div class="item_hd">
                 <img src="./index/p-person.png" alt="">
             </div>
             <div class="item_bd text-6">姓名</div>
             <input type="text" class="item_input" placeholder="请输入姓名">
-        </label>
-        <label class="item">
+        </div>
+        <div class="item">
             <div class="item_hd">
                 <img src="./index/p-birth.png" alt="">
             </div>
             <div class="item_bd text-6">生日</div>
-            <input type="text" class="item_input" id="">
-        </label>
+            <input type="text" class="item_input" id="fans_birthday">
+        </div>
 
-        <label class="item">
-                    <div class="item_hd">
-                            <img src="./index/p-tel.png" alt="">
-                        </div>
-                        <div class="item_bd text-6">手机</div>
-                        <input type="tel" class="item_input" id="">
-            </label>
+        <div class="item">
+            <div class="item_hd">
+                <img src="./index/p-tel.png" alt="">
+            </div>
+            <div class="item_bd text-6">手机</div>
+            <input type="tel" class="item_input" id="" placeholder="请输入手机号">
+        </div>
 
+        <div class="item">
+            <div class="item_hd">
+                <img src="./index/p-code.png" alt="">
+            </div>
+            <div class="item_bd text-6">验证码</div>
+            <input type="text" class="item_input" id="" style="width:55%">
+            <div class="item_ft" style="padding-right:0">
+                <div class="button_code">
+                    验证码
+                </div>
+            </div>
+        </div>
 
     </ul>
 
+    <!-- 验证码未通过之前显示 .pre_confirm，不可点击。验证码通过显示.confirm -->
+    <!-- <div class="pre_confirm">确定</div> -->
     <div class="confirm">确定</div>
 
 </body>
+<!-- body 最后 -->
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/swiper.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
+
+<script>
+    // $('#fans_birthday').datetimePicker({
+    //     times: function() {},
+    //     onChange: function(picker, values, displayValues) {
+    //         _that.submitData.fans_birthday = values.join('-');
+    //     }
+    // });
+    $('#fans_birthday').datetimePicker({
+        times: function() {}
+    });
+</script>
 
 </html>
