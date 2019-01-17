@@ -101,6 +101,12 @@
                display: block;
            }
            
+           .text-11 {
+               font-size: 21px;
+               font-weight: 600;
+               color: #000;
+           }
+           
            %tip {
                font-size: 10px;
                padding: 3px 7.5px;
@@ -137,6 +143,15 @@
                padding: 5px 15px;
                border-radius: 15px;
                border: 1px solid #fff;
+           }
+           
+           .button-3 {
+               display: inline-block;
+               background-color: #C2504B;
+               font-size: 12px;
+               transform: scale(0.8);
+               color: #fff;
+               padding: 2px 8px;
            }
            
            .button-sign {
@@ -507,7 +522,7 @@
                    }
                    &:after {
                        content: '';
-                       border-bottom: 0.6px solid #ECECEC;
+                       border-bottom: 1px solid #ECECEC;
                        width: 95%;
                        position: absolute;
                        bottom: 0;
@@ -530,4 +545,75 @@
                    height: 100px;
                    margin-bottom: 5px;
                }
+           }
+           
+           //    弹层
+           .BG {
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100vh;
+               z-index: 900;
+               background-color: rgba(0, 0, 0, .5);
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+           }
+           
+           .setting_wrapper {
+               width: 335px;
+               border-radius: 5px;
+               background-color: #fff;
+               display: flex;
+               flex-direction: column;
+               &-header {
+                   img {
+                       width: 100%;
+                       height: 315px;
+                   }
+               }
+               &-body {
+                   padding: 15px 15px 0;
+                   box-sizing: border-box;
+               }
+               &-footer {
+                   padding: 0 15px 15px;
+               }
+           }
+           
+           .dishesDes_close {
+               width: 40px;
+               height: 40px;
+               margin-top: 30px;
+           }
+           
+           .pre_confirm {
+               position: absolute;
+               bottom: 20px;
+               left: 50%;
+               transform: translate(-50%);
+               width: 90%;
+               background-color: #DDDDDD;
+               color: #FFFFFF;
+               text-align: center;
+               padding: 10px 0;
+               font-size: 14px;
+               border-radius: 4px;
+               cursor: none;
+           }
+           
+           .confirm {
+               position: absolute;
+               bottom: 20px;
+               left: 50%;
+               transform: translate(-50%);
+               width: 90%;
+               background-color: #D24646;
+               color: #FFFFFF;
+               text-align: center;
+               padding: 10px 0;
+               font-size: 14px;
+               border-radius: 4px;
            }

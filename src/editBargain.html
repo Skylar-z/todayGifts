@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>附近砍价</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px';
+    </script>
+    <!-- <link rel="stylesheet" href="__PUBLIC__/Home/marketingTools/css/weui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/marketingTools/css/link.css"> 
+    <link rel="stylesheet" href="__PUBLIC__/Home/marketingTools/css/jquery-weui.min.css"> -->
+    <!-- <link rel="stylesheet" href="__PUBLIC__/Home/Mechain/Bargain/css/bargain.76ab496e.css"> -->
+    <link rel="stylesheet" href="./index/bargain.scss">
+
+    <style type="text/css">
+        .center {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+        
+        .hover-pic img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .weui-input {
+            font-size: 14px;
+            width: 7rem !important;
+            margin-left: 10px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="vueBox" style="padding-bottom:60px;">
+        <div class="banner_wrap">
+            <img src="./index/bargain_bg1.30e0c5f3.png" alt="" class="banner">
+        </div>
+        <div class="bargain_money" style="margin-top:2rem;border-bottom:0;">
+            <span>砍价折扣</span>
+            <input type="number" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" v-model="formData.commonDiscount" @keyup="num($event)" class="weui-input" v-model="pri_ori_price">
+            <span>折</span>
+        </div>
+        <div class="bargain_money" style="margin-top:0rem;border-bottom:0;">
+            <span>帮砍人数</span>
+            <input type="number" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" v-model="formData.bargain_num" class="weui-input" v-model="pri_ori_price">
+            <span>人</span>
+        </div>
+        <div class="bargain_money" style="margin-top:0rem;border-bottom:0;">
+            <span>可砍范围</span>
+            <input type="number" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" v-model="formData.bargain_distance" class="weui-input" v-model="pri_ori_price">
+            <span>公里</span>
+        </div>
+
+        <div class="" style="margin-top:0rem;">
+            <div id="createImg" class="center" style="width: 100%;height: 100%;">
+                <div class="hover-pic qrcode center" style="width:150px;height:150px">
+                    <img src="./index/qrcode.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain_button" @click="submitAct">
+            <img src="./index/addbargain.png" alt=""> 保存附近砍价活动
+        </div>
+
+    </div>
+</body>
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/jquery-2.1.4.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/editPlayWithYou/html2canvas.js?2017"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/editPlayWithYou/jquery.qrcode.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/common.js?20190102"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/swiper-4.3.3.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/geolocation.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/vue.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/marketingTools/js/vue-resource.min.js"></script>
+<script type="text/javascript">
+    var _datas = {
+        $fop_Edit_Bargain
+    } != null ? {
+        $fop_Edit_Bargain
+    } : []; // 编辑数据
+
+    var _vue = new Vue({
+        el: '.vueBox',
+        data: {
+
+            formData: { // 提交数据 
+                auto: _datas.auto || 0, // 活动主表auto
+                title: _datas.title || '附近砍价', // 砍价标题
+                bargain_num: _datas.bargain_num || '', // 帮砍次数
+                bargain_distance: _datas.bargain_distance || '', // 可帮抢的公里范围
+                discount_type: 1, // 折扣方式
+                commonDiscount: _datas.commonDiscount || '', //  统一折扣方式
+                commonDiscountid: _datas.commonDiscountid || 0, //  统一折扣方式
+                draft: _datas.draft || 0, // 默认非草稿
+            },
+            mechainQrcode: false,
+            qrcodeUrl: '{$qrcodeUrl}',
+
+        },
+        methods: {
+            createTestQrcode: function() { // 生成测试二维码
+                this.mechainQrcode = true;
+                this._qrcode('.qrcode', this.qrcodeUrl);
+
+                setTimeout(function() {
+                    createWebToImage('.qrcode');
+                }, 1000);
+            },
+            num: function(e) { // 小数点两位限制输入
+
+                var _val = $(e.currentTarget).val();
+
+                this.pri_ori_price = _val.replace(/[^\d.]/g, ""); //清除"数字"和"."以外的字符
+                this.pri_ori_price = this.pri_ori_price.replace(/^\./g, ""); //验证第一个字符是数字
+                this.pri_ori_price = this.pri_ori_price.replace(/\.{2,}/g, "."); //只保留第一个, 清除多余的
+                this.pri_ori_price = this.pri_ori_price.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+                this.pri_ori_price = this.pri_ori_price.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'); //只能输入两个小数
+
+                console.log(this.pri_ori_price);
+            },
+            submitAct: function() { // 立即发布
+
+                /************相关验证开始*************/
+                /*if( this.formData.act_img.length==0 ){ // 帮砍人数设定不能为空
+                    $.alert('轮播图不能为空');return;
+                }*/
+
+                if (!this.formData.title) { // `、活动标题验证
+                    $.alert('活动标题不能为空');
+                    return;
+                }
+
+                if (!this.formData.bargain_num) { // 帮砍人数设定不能为空
+                    $.alert('帮砍人数设定不能为空');
+                    return;
+                }
+
+                if (!this.formData.bargain_distance) { // 活动详情不能为空
+                    $.alert('可抢范围不能为空');
+                    return;
+                }
+
+                if (!this.formData.commonDiscount) { // 活动详情不能为空
+                    $.alert('砍价折扣不能为空');
+                    return;
+                }
+                /************相关验证结束*************/
+                this.$http.post(
+                    '__CONTROLLER__/submitData',
+                    this.formData, {
+                        emulateJSON: true
+                    }
+                ).then(function(res) {
+                        if (res.data.code != 1) {
+                            $.alert(res.data.errMsg);
+                            return;
+                        } else {
+                            $.alert('保存成功');
+                        }
+                    },
+                    function(err) {
+
+                    });
+
+            },
+            _qrcode: function(selector, url) {
+                var element = $(document).find(selector);
+                element.qrcode({
+                    render: "canvas", //也可以替换为table
+                    width: 150,
+                    height: 150,
+                    correctLevel: 0,
+                    text: url
+                });
+            },
+            createTestQrcode: function() { // 生成测试二维码
+                this.mechainQrcode = true;
+                this._qrcode('.qrcode', this.qrcodeUrl);
+
+                setTimeout(function() {
+                    createWebToImage('.qrcode');
+                }, 1000);
+            },
+            getMechainLocation: function() { // 获取商家位置
+                //获取地理位置信息
+                var _geolocation = new qq.maps.Geolocation("5HPBZ-Z35AV-4FKPU-UDCDK-TGG66-HEF6S", "myapp");    
+                var _options = {
+                    timeout: 10000000000
+                };
+                _geolocation.getLocation(this.showPosition, this.showGeoLocationErr, _options);
+            },
+            showPosition: function(position) { // 获取位置信息
+
+                var _position = position;
+                this.customlat = _position.lat;
+                this.customlng = _position.lng;
+
+                // --- [通过经纬度 换取详细地址] ---
+                // this.getDetailAddress(_position.lat,_position.lng);
+            },
+            getLocation: function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(this.showPosition2);
+                } else {
+                    $.alert("浏览器无法获取当前位置");
+                }
+            },
+            _IOSuitWeixinAlert: function() {
+                $(document).find('.weui-input').on('blur', function() {
+                    setTimeout(function() {
+                        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+                        window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+                    }, 10);
+                })
+            },
+            showPosition2: function(position) {
+                this.customlat = position.coords.latitude;
+                this.customlng = position.coords.longitude;
+            },
+        },
+        mounted() {
+
+            // 获取用户当前位置
+            // this.getLocation();
+            this.getMechainLocation();
+            this._IOSuitWeixinAlert();
+        },
+    });
+</script> -->
+
+</html>
