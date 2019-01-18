@@ -93,6 +93,13 @@
             font-size: 16px;
             width: 10rem;
         }
+        
+        .star {
+            width: 65px;
+            height: 20px;
+            position: relative;
+            top: 3px;
+        }
     </style>
     <script>
         (document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth || document.body.clientWidth) / 23.4375 + 'px')
@@ -129,7 +136,10 @@
                         </div>
                         <div class="weui-cell__bd cell-colmn">
                             <div class="cell-row">
-                                <span class="hideword username">用户名称用户名称用户名称用户名称用户名称用户名称用户名称</span>
+                                <div class="hideword username">用户名称
+                                    <img src="./index/1@3x.png" alt="" class="star">
+                                </div>
+
                                 <span class="f14">2019.1.31</span>
                             </div>
                             <div class="f14 hideword " style="max-width:15rem;">
@@ -152,7 +162,7 @@
                         </div>
                         <div class="weui-cell__bd cell-colmn">
                             <div class="cell-row">
-                                <span class="hideword username">用户名称用户名称用户名称用户名称用户名称用户名称用户名称</span>
+                                <span class="hideword username">用户名</span>
                                 <span class="f14">2019.1.31</span>
                             </div>
                             <div class="f14 hideword " style="max-width:15rem;">
@@ -165,8 +175,6 @@
                     <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -210,20 +218,20 @@
     // const c = a + b;
     // console.log(a);
     // console.log(c);
-    const a = new Number('123sd');
-    console.log(a);
-    console.log(a.toString());
+    // const a = new Number('123sd');
+    // console.log(a);
+    // console.log(a.toString());
 
-    const b = "123";
-    console.log(b);
+    // const b = "123";
+    // console.log(b);
 
-    const c = [123, 123, 564]
-    console.log(c);
-    const d = 123;
-    console.log(d)
+    // const c = [123, 123, 564]
+    // console.log(c);
+    // const d = 123;
+    // console.log(d)
 
-    var e = new Date();
-    console.log(e.toNumber());
+    // var e = new Date();
+    // console.log(e.toNumber());
 </script>
 
 </html>
