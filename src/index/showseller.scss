@@ -320,7 +320,7 @@
            }
            
            .seller_info {
-               width: 100%;
+               margin: 15px;
                height: 130px;
                background-color: #D24646;
                display: flex;
@@ -438,14 +438,14 @@
            
            //    我的钱包
            .wallet {
-               width: 100%;
+               margin: 15px;
                height: 130px;
                background-color: #D24646;
                color: #fff;
                .balance {
                    position: absolute;
-                   top: 50px;
-                   left: 15px;
+                   top: 65px;
+                   left: 30px;
                    &_key {
                        font-size: 12px;
                        transform: scale(0.91);
@@ -457,8 +457,8 @@
                }
                .balance_button {
                    position: absolute;
-                   right: 15px;
-                   top: 63px;
+                   right: 30px;
+                   top: 78px;
                    width: 69px;
                    height: 29px;
                    line-height: 29px;
@@ -468,8 +468,8 @@
                }
                .balance_des {
                    position: absolute;
-                   top: 14px;
-                   right: 15px;
+                   top: 30px;
+                   right: 30px;
                    font-size: 13px;
                    display: flex;
                    align-items: center;
