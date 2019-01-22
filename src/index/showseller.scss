@@ -327,6 +327,7 @@
                align-items: center;
                padding: 0 15px;
                box-sizing: border-box;
+               border-radius: 0.25rem;
            }
            
            .personal_wrap {
@@ -442,6 +443,7 @@
                height: 130px;
                background-color: #D24646;
                color: #fff;
+               border-radius: 4px;
                .balance {
                    position: absolute;
                    top: 65px;
@@ -528,6 +530,11 @@
                        bottom: 0;
                        left: 15px;
                    }
+                   &:last-of-type {
+                       &::after {
+                           border: none
+                       }
+                   }
                }
            }
            
@@ -572,6 +579,49 @@
                    img {
                        width: 100%;
                        height: 315px;
+                   }
+               }
+               &-body {
+                   padding: 15px 15px 0;
+                   box-sizing: border-box;
+               }
+               &-footer {
+                   padding: 0 15px 15px;
+               }
+           }
+           
+           .sm-BG {
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100vh;
+               z-index: 900;
+               background-color: rgba(0, 0, 0, .5);
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: flex-end;
+               display: none;
+           }
+           
+           .sm-setting_wrapper {
+               width: 100%;
+               background-color: #fff;
+               display: flex;
+               flex-direction: column;
+               &-header {
+                   position: relative;
+                   .sm-descimg {
+                       width: 100%;
+                       height: 375px;
+                   }
+                   .sm-close {
+                       width: 30px;
+                       height: 30px;
+                       position: absolute;
+                       top: 15px;
+                       right: 15px;
                    }
                }
                &-body {
