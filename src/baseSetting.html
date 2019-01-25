@@ -98,7 +98,8 @@
                 营业时间
             </div>
             <div class="item_bd">
-                <div id="trigger2"></div>
+                <!-- <div id="trigger2"></div> -->
+                <input type="time">
             </div>
 
         </li>
@@ -196,67 +197,6 @@
 <script>
     $("#city-picker").cityPicker({
 
-    });
-
-    var mobileSelect2 = new MobileSelect({
-        trigger: '#trigger2',
-        title: '地区选择',
-        wheels: [{
-            data: [{
-                id: '1',
-                value: '00'
-            }, {
-                id: '2',
-                value: '01'
-            }, {
-                id: '3',
-                value: '02'
-            }, {
-                id: '4',
-                value: '03'
-            }, {
-                id: '5',
-                value: '04'
-            }, {
-                id: '6',
-                value: '05'
-            }, {
-                id: '1',
-                value: '06'
-            }, {
-                id: '2',
-                value: '07'
-            }, {
-                id: '3',
-                value: '08'
-            }, {
-                id: '4',
-                value: '09'
-            }, {
-                id: '5',
-                value: '10'
-            }, ]
-        }, {
-            data: [{
-                id: '1',
-                value: '1000米'
-            }, {
-                id: '2',
-                value: '2000米'
-            }, {
-                id: '3',
-                value: '3000米'
-            }, {
-                id: '4',
-                value: '5000米'
-            }, {
-                id: '5',
-                value: '10000米'
-            }]
-        }],
-        callback: function(indexArr, data) {
-            console.log(data); //返回选中的json数据
-        }
     });
 </script>
 

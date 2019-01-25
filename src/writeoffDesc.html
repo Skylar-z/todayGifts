@@ -97,15 +97,18 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
 
 <script>
-    // $('#fans_birthday').datetimePicker({
-    //     times: function() {},
-    //     onChange: function(picker, values, displayValues) {
-    //         _that.submitData.fans_birthday = values.join('-');
-    //     }
-    // });
-    $('#fans_birthday').datetimePicker({
-        times: function() {}
-    });
+    function Otaku(name, age) {
+        this.name = name;
+        this.age = age;
+        this.habit = 'games';
+    }
+    Otaku.prototype.strength = 60;
+    Otaku.prototype.sayYourName = function() {
+        console.log('I am' + this.name);
+    }
+
+    var person = new Otaku('kevin', 18);
+    console.log(person.name);
 </script>
 
 </html>
