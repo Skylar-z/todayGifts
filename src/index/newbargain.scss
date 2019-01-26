@@ -1,0 +1,156 @@
+           /* 包装搜索栏样式 */
+           
+           .weui-search-bar {
+            background: #ECECEC;
+            padding: 8px 15px;
+        }
+        
+        .weui-search-bar__form:after,
+        .weui-search-bar__label {
+            border-radius: 2.125rem;
+        }
+        
+        .weui-search-bar__form {
+            background: #ECECEC;
+            padding: 1px;
+        }
+        
+        .weui-search-bar__cancel-btn {
+            color: #fff;
+            font-size: 13px;
+        }
+        /* 包装搜索栏样式 */
+
+        /* 包装导航栏 */
+        .weui-navbar__item.weui-bar__item--on{
+            background-color: #fff;
+            color: #D24646;
+            position: relative;
+            &::before{
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 2px;
+                background-color: #D24646;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+            }
+            
+        }
+        .weui-navbar__item:after{
+            border-right: none;
+        }
+        .weui-navbar{
+            background-color: #fff;
+            position: relative;
+        }
+         /* 包装盗汗浪 */
+
+        .container {
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 60px;
+        }
+
+        %bc_button{
+            width: 85px;
+            height: 25px;
+            border-radius: 13.5px;
+            font-size: 12px;
+            line-height: 25px;
+            text-align: center;
+            position: absolute;
+            right: 0.0625rem;
+           top: 30%
+        }
+        .bargain_coupon_red{
+            background: url(./bc_red.png);
+            background-size: 100% 100%;
+        }
+        .bargain_coupon_orange{
+            background: url(./bc_orange.png);
+            background-size: 100% 100%;
+        }
+
+        .bargain_coupon_blue{
+            background: url(./bc_blue.png);
+            background-size: 100% 100%;
+        }
+        .bargain_coupon_outtime{
+            background: url(./bc_outtime.png);
+            background-size: 100% 100%;
+        }
+        .bargain_coupon_used{
+            background: url(./bc_userd.png);
+            background-size: 100% 100%;
+        }
+        .bargain_coupon {
+           
+            width: 100%;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            &__header {
+                width: 100%;
+                height: 6rem;
+               margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #fff;
+            }
+            &__body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+                justify-content: flex-start;
+                align-items: flex-start;
+                position: relative;
+                .bc_button{
+                   @extend %bc_button;
+                   border: 1px solid #dddddd;
+                   color:#F5A623;
+                }
+                .bc_button_outtime{
+                    @extend %bc_button;
+                    border: 1px solid #dddddd;
+                    color:#fff;
+                    background-color: #dddddd;
+                }
+                .bc_button_used{
+                    @extend %bc_button;
+                    border: 1px solid #B3B3B3;
+                    color:#fff;
+                    background-color: #B3B3B3;
+                }
+            }
+        }
+
+
+        .xdy-text__e3 {
+            font-size: 14px;
+            color: black;
+            font-weight: 500;
+        }
+
+        .xdy-text__e5 {
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+
+        .left_img{
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            float: left;
+            position: relative;
+            top: 1px;
+        }
