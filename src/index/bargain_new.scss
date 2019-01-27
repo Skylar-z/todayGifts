@@ -20,6 +20,9 @@
         font-size:13px;
         font-weight:700
     }
+    .bn_topbar_left{
+        width: 60%;
+    }
 .bn_declare{
    width: 13px;
    height: 13px;
@@ -30,6 +33,7 @@
 }
 .bn_swiper_list{
     width: 100%;
+    height: 2.1875rem;
     display: flex;
     align-items: center;
 
@@ -99,13 +103,33 @@
 }
 
 
-.bntext_main{
+%bntext_main{
 text-align: center;
 color: #F5A623;
-margin-top: 20px;
+margin-top: 25px;
 font-size: 18px;
 font-weight: 600;
 }
+.bntext_main{
+    @extend %bntext_main;
+}
+
+.bntext_main-finish{
+    @extend %bntext_main;
+    color: #727272;
+    position: relative;
+ &::after{
+     content: "";
+     background: url(./bn_acfinish.png);
+     background-size: 100% 100%;
+     width: 76.5px;
+     height: 67px;
+     position: absolute;
+     right: 5px;
+     top: -15px;
+ }
+}
+
 
 .bn_activeicon{
     position: absolute;
@@ -116,4 +140,66 @@ font-weight: 600;
     height: 25px;
     z-index: 10;
     
+}
+
+.bn_button-main{
+    width:225px;
+    border-radius: 0.9375rem;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background-image: linear-gradient(90deg, #D24646 3%, #FF7676 98%);
+    box-shadow: 0 8px 10px 0 rgba(210,70,70,0.30);
+}
+.bn_button-other{
+    width:225px;
+    border:1px solid #D24646;
+    border-radius: 0.9375rem;
+    color: #D24646;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+.BG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bn_tc_wrap{
+    background: url(./bn_tangchuan.png);
+    background-size: 100% 100%;
+   width:307px;
+   height:215px;
+   top:-5rem;
+
+}
+
+.bn_tc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
 }
